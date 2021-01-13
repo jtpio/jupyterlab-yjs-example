@@ -1,6 +1,7 @@
 # jupyterlab-yjs-example
 
 ![Github Actions Status](https://github.com/jtpio/jupyterlab-yjs-example/workflows/Build/badge.svg)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/jupyterlab-yjs-example/main?urlpath=/lab)
 
 Example of using Yjs in JupyterLab for collaborative editing.
 
