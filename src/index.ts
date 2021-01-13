@@ -14,6 +14,11 @@ import { WebsocketProvider } from 'y-websocket';
 import { CodemirrorBinding } from 'y-codemirror';
 
 /**
+ * Custom prefix for the websocket provider
+ */
+const WEBSOCKET_PROVIDER_PREFIX = 'jupyterlab-yjs-example';
+
+/**
  * Initialization data for the jupyterlab-yjs-example extension.
  */
 const extension: JupyterFrontEndPlugin<void> = {
@@ -25,7 +30,7 @@ const extension: JupyterFrontEndPlugin<void> = {
       const ydoc = new Y.Doc();
       const provider = new WebsocketProvider(
         'wss://demos.yjs.dev',
-        widget.context.path,
+        `${WEBSOCKET_PROVIDER_PREFIX}-${widget.context.path}`,
         ydoc
       );
       const ytext = ydoc.getText('codemirror');
