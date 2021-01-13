@@ -1,13 +1,13 @@
 include LICENSE
 include README.md
 include pyproject.toml
-include jupyter-config/jupyterlab-yjs-example.json
+include jupyter-config/jupyterlab_yjs_example.json
 
 include package.json
 include install.json
 include ts*.json
 
-graft jupyterlab-yjs-example/labextension
+graft jupyterlab_yjs_example/labextension
 
 # Javascript files
 graft src

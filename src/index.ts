@@ -13,6 +13,8 @@ import { WebsocketProvider } from 'y-websocket';
 
 import { CodemirrorBinding } from 'y-codemirror';
 
+import { requestAPI } from './handler';
+
 /**
  * Custom prefix for the websocket provider
  */
@@ -21,8 +23,8 @@ const WEBSOCKET_PROVIDER_PREFIX = 'jupyterlab-yjs-example';
 /**
  * Initialization data for the jupyterlab-yjs-example extension.
  */
-const extension: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab-yjs-example:plugin',
+const editors: JupyterFrontEndPlugin<void> = {
+  id: 'jupyterlab-yjs-example:editors',
   optional: [IEditorTracker],
   autoStart: true,
   activate: (app: JupyterFrontEnd, tracker: IEditorTracker | null) => {
@@ -46,4 +48,23 @@ const extension: JupyterFrontEndPlugin<void> = {
   }
 };
 
-export default extension;
+const share: JupyterFrontEndPlugin<void> = {
+  id: 'jupyterlab-yjs-example:share',
+  autoStart: true,
+  activate: (app: JupyterFrontEnd) => {
+    console.log('ready');
+
+    requestAPI<any>('get_example')
+      .then(data => {
+        console.log(data);
+      })
+      .catch(reason => {
+        console.error(
+          `The jupyterlab-yjs-example server extension appears to be missing.\n${reason}`
+        );
+      });
+  }
+};
+
+const plugins: JupyterFrontEndPlugin<any>[] = [editors, share];
+export default plugins;

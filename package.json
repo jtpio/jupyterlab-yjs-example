@@ -1,5 +1,5 @@
 {
-  "name": "jupyterlab-yjs-example",
+  "name": "jupyterlab_yjs_example",
   "version": "0.1.0",
   "description": "Example of using Yjs in JupyterLab for collaborative editing",
   "keywords": [
@@ -71,6 +71,6 @@
   "styleModule": "style/index.js",
   "jupyterlab": {
     "extension": true,
-    "outputDir": "jupyterlab-yjs-example/labextension"
+    "outputDir": "jupyterlab_yjs_example/labextension"
   }
 }
