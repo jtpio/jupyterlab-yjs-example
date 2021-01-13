@@ -31,12 +31,15 @@ import { CodemirrorBinding } from 'y-codemirror';
  */
 const WEBSOCKET_PROVIDER_PREFIX = 'jupyterlab-yjs-example';
 
+/**
+ * The command IDs used by the plugin.
+ */
 namespace CommandIDs {
   export const share = 'jupyterlab-yjs-example:share';
 }
 
 /**
- * Initialization data for the jupyterlab-yjs-example extension.
+ * Support for collaborative editing with file editors.
  */
 const editors: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-yjs-example:editors',
@@ -63,6 +66,9 @@ const editors: JupyterFrontEndPlugin<void> = {
   }
 };
 
+/**
+ * Plugin to share the URL of the running Jupyter Server
+ */
 const share: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-yjs-example:share',
   autoStart: true,
