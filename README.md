@@ -16,6 +16,10 @@ This example can be tested on Binder with several people:
 
 ![binder-demo](https://user-images.githubusercontent.com/591645/104510621-b5c20900-55eb-11eb-840f-9ecaf4ccd0ad.gif)
 
+It is also possible to use [JupyterLab Classic](https://github.com/jtpio/jupyterlab-classic) to edit the file:
+
+![jupyterlab-classic](https://user-images.githubusercontent.com/591645/104511017-5fa19580-55ec-11eb-8b79-0820f59c21de.png)
+
 ## Requirements
 
 * JupyterLab >= 3.0
