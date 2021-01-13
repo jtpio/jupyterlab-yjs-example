@@ -16,6 +16,10 @@ import { PageConfig, URLExt } from '@jupyterlab/coreutils';
 
 import { IEditorTracker } from '@jupyterlab/fileeditor';
 
+import { IMainMenu } from '@jupyterlab/mainmenu';
+
+import { Menu } from '@lumino/widgets';
+
 import * as Y from 'yjs';
 
 import { WebsocketProvider } from 'y-websocket';
@@ -54,16 +58,18 @@ const editors: JupyterFrontEndPlugin<void> = {
       const binding = new CodemirrorBinding(ytext, cm, provider.awareness);
       console.log(binding);
     });
-
-    console.log('JupyterLab extension jupyterlab-yjs-example is activated!');
   }
 };
 
 const share: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-yjs-example:share',
   autoStart: true,
-  optional: [ICommandPalette],
-  activate: (app: JupyterFrontEnd, palette: ICommandPalette | null) => {
+  optional: [ICommandPalette, IMainMenu],
+  activate: (
+    app: JupyterFrontEnd,
+    palette: ICommandPalette | null,
+    menu: IMainMenu | null
+  ) => {
     const { commands } = app;
 
     commands.addCommand(CommandIDs.share, {
@@ -93,6 +99,16 @@ const share: JupyterFrontEndPlugin<void> = {
 
     if (palette) {
       palette.addItem({ command: CommandIDs.share, category: 'Server' });
+    }
+
+    if (menu) {
+      // Create a menu
+      const shareMenu: Menu = new Menu({ commands });
+      shareMenu.title.label = 'Share';
+      menu.addMenu(shareMenu, { rank: 10000 });
+
+      // Add the command to the menu
+      shareMenu.addItem({ command: CommandIDs.share });
     }
   }
 };
