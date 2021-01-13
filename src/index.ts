@@ -43,21 +43,23 @@ const editors: JupyterFrontEndPlugin<void> = {
   optional: [IEditorTracker],
   autoStart: true,
   activate: (app: JupyterFrontEnd, tracker: IEditorTracker | null) => {
-    tracker.widgetAdded.connect((sender, widget) => {
-      const ydoc = new Y.Doc();
-      const provider = new WebsocketProvider(
-        'wss://demos.yjs.dev',
-        `${WEBSOCKET_PROVIDER_PREFIX}-${widget.context.path}`,
-        ydoc
-      );
-      const ytext = ydoc.getText('codemirror');
-      const editor = widget.content.editor;
-      const cmEditor = editor as CodeMirrorEditor;
-      const cm = cmEditor.editor;
+    if (tracker) {
+      tracker.widgetAdded.connect((sender, widget) => {
+        const ydoc = new Y.Doc();
+        const provider = new WebsocketProvider(
+          'wss://demos.yjs.dev',
+          `${WEBSOCKET_PROVIDER_PREFIX}-${widget.context.path}`,
+          ydoc
+        );
+        const ytext = ydoc.getText('codemirror');
+        const editor = widget.content.editor;
+        const cmEditor = editor as CodeMirrorEditor;
+        const cm = cmEditor.editor;
 
-      const binding = new CodemirrorBinding(ytext, cm, provider.awareness);
-      console.log(binding);
-    });
+        const binding = new CodemirrorBinding(ytext, cm, provider.awareness);
+        console.log(binding);
+      });
+    }
   }
 };
 
