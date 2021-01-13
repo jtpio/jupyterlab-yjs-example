@@ -2,20 +2,11 @@
 
 ![Github Actions Status](https://github.com/jtpio/jupyterlab-yjs-example/workflows/Build/badge.svg)
 
-An example of using Yjs in JupyterLab
-
-
+Example of using Yjs in JupyterLab for collaborative editing.
 
 ## Requirements
 
 * JupyterLab >= 3.0
-
-## Install
-
-```bash
-pip install jupyterlab-yjs-example
-```
-
 
 ## Contributing
 
@@ -53,10 +44,4 @@ By default, the `jlpm run build` command generates the source maps for this exte
 
 ```bash
 jupyter lab build --minimize=False
-```
-
-### Uninstall
-
-```bash
-pip uninstall jupyterlab-yjs-example
 ```
