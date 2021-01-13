@@ -116,7 +116,7 @@
     "@lumino/signaling" "^1.4.3"
     "@lumino/widgets" "^1.16.1"
 
-"@jupyterlab/apputils@^3.0.2":
+"@jupyterlab/apputils@^3.0.0", "@jupyterlab/apputils@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@jupyterlab/apputils/-/apputils-3.0.2.tgz#e45e6b65c9d9dea0d0cbc8074a809ecc960e8bbe"
   integrity sha512-nTXwpRUPSVR3yevQyGZH6kKsl41Df3nkKCjp8nAqwAPjcwv+nuxLIwnBQP1BFZ+JfIKn18aoZ8ULoH79qasKNg==
@@ -242,7 +242,7 @@
     codemirror "~5.57.0"
     react "^17.0.1"
 
-"@jupyterlab/coreutils@^5.0.1":
+"@jupyterlab/coreutils@^5.0.0", "@jupyterlab/coreutils@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@jupyterlab/coreutils/-/coreutils-5.0.1.tgz#f50305be93d2e0f1e60546f816d103229a92ba24"
   integrity sha512-eYjEtZAgoRx0UJY/wfdm7Og+Z1dkcmEjTL5J6MfTROe164F6OCodEFbKECIyVfGt+hoAOiqs3Jg9cPqMw+DA3Q==

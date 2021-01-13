@@ -3,7 +3,16 @@ import {
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
+import {
+  Clipboard,
+  Dialog,
+  ICommandPalette,
+  showDialog
+} from '@jupyterlab/apputils';
+
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
+
+import { PageConfig, URLExt } from '@jupyterlab/coreutils';
 
 import { IEditorTracker } from '@jupyterlab/fileeditor';
 
@@ -13,12 +22,14 @@ import { WebsocketProvider } from 'y-websocket';
 
 import { CodemirrorBinding } from 'y-codemirror';
 
-import { requestAPI } from './handler';
-
 /**
  * Custom prefix for the websocket provider
  */
 const WEBSOCKET_PROVIDER_PREFIX = 'jupyterlab-yjs-example';
+
+namespace CommandIDs {
+  export const share = 'jupyterlab-yjs-example:share';
+}
 
 /**
  * Initialization data for the jupyterlab-yjs-example extension.
@@ -51,18 +62,38 @@ const editors: JupyterFrontEndPlugin<void> = {
 const share: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-yjs-example:share',
   autoStart: true,
-  activate: (app: JupyterFrontEnd) => {
-    console.log('ready');
+  optional: [ICommandPalette],
+  activate: (app: JupyterFrontEnd, palette: ICommandPalette | null) => {
+    const { commands } = app;
 
-    requestAPI<any>('get_example')
-      .then(data => {
-        console.log(data);
-      })
-      .catch(reason => {
-        console.error(
-          `The jupyterlab-yjs-example server extension appears to be missing.\n${reason}`
+    commands.addCommand(CommandIDs.share, {
+      label: 'Share Jupyter Server Link',
+      execute: async () => {
+        const link = URLExt.normalize(
+          `${PageConfig.getUrl({
+            workspace: PageConfig.defaultWorkspace
+          })}?token=${PageConfig.getToken()}`
         );
-      });
+        const result = await showDialog({
+          title: 'Share Jupyter Server Link',
+          body: link,
+          buttons: [
+            Dialog.cancelButton({ label: 'Cancel' }),
+            Dialog.okButton({
+              label: 'Copy',
+              caption: 'Copy the link to the Jupyter Server'
+            })
+          ]
+        });
+        if (result.button.accept) {
+          Clipboard.copyToSystem(link);
+        }
+      }
+    });
+
+    if (palette) {
+      palette.addItem({ command: CommandIDs.share, category: 'Server' });
+    }
   }
 };
 
