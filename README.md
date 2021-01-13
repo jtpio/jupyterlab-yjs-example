@@ -5,6 +5,17 @@
 
 Example of using Yjs in JupyterLab for collaborative editing.
 
+## Try it on Binder
+
+This example can be tested on Binder with several people:
+
+1. Open a file
+2. Click on `Share > Share Jupyter Server Link`
+3. Copy the link
+4. Send the link
+
+![binder-demo](https://user-images.githubusercontent.com/591645/104510621-b5c20900-55eb-11eb-840f-9ecaf4ccd0ad.gif)
+
 ## Requirements
 
 * JupyterLab >= 3.0
