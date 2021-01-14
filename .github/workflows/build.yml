@@ -29,5 +29,5 @@ jobs:
         jlpm run eslint:check
         python -m pip install .
 
-        jupyter labextension list 2>&1 | grep -ie "jupyterlab-yjs-example.*OK"
+        jupyter labextension list 2>&1 | grep -ie "jupyterlab_yjs_example.*OK"
         python -m jupyterlab.browser_check
