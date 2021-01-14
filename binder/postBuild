@@ -1,1 +1,4 @@
 pip install jupyterlab-link-share .
+
+mkdir -p $HOME/.jupyter/
+cp binder/jupyter_notebook_config.py ${HOME}/.jupyter/
