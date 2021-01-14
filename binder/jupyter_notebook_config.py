@@ -4,7 +4,8 @@ c.ServerProxy.servers = {
             "HOST=localhost",
             "PORT={port}",
             "npx",
-            "y-websocket-server"
+            "-y",
+            "y-websocket"
         ],
         "timeout": 120
     }
