@@ -2,7 +2,7 @@ c.ServerProxy.servers = {
     "y-websocket": {
         "command": [
             "HOST=localhost",
-            "PORT={port}",
+            "PORT=1234",
             "npx",
             "-y",
             "y-websocket"
