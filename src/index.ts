@@ -30,7 +30,7 @@ const editors: JupyterFrontEndPlugin<void> = {
       tracker.widgetAdded.connect((sender, widget) => {
         const ydoc = new Y.Doc();
         const provider = new WebsocketProvider(
-          'wss://demos.yjs.dev',
+          'ws://localhost:1234',
           `${WEBSOCKET_PROVIDER_PREFIX}-${widget.context.path}`,
           ydoc
         );
