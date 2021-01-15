@@ -1,9 +1,11 @@
+import sys
+
 c.ServerProxy.servers = {
     "y-websocket": {
         "command": [
-            "HOST=localhost",
+            "HOST=0.0.0.0",
             "PORT=1234",
-            "npx",
+            f"{sys.prefix}/bin/npx",
             "-y",
             "y-websocket"
         ],
