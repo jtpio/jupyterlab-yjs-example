@@ -4,3 +4,4 @@ channels:
 dependencies:
 - jupyterlab=3
 - jupyterlab-classic=0.1
+- jupyterlab-link-share=0.1
