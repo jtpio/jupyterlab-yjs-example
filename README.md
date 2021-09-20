@@ -1,5 +1,13 @@
 # jupyterlab-yjs-example
 
+## Archived
+
+**This project is archived. JupyterLab 3.1+ now has support real time collaboration: **
+
+https://jupyterlab.readthedocs.io/en/stable/user/rtc.html
+
+---
+
 ![Github Actions Status](https://github.com/jtpio/jupyterlab-yjs-example/workflows/Build/badge.svg)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/jupyterlab-yjs-example/main?urlpath=/lab)
 
